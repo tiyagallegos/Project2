@@ -27,4 +27,4 @@ const setUpSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('setUp', setUpSchema);

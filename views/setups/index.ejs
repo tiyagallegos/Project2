@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+<h3>Complete Setup Prior to Starting Your Feeding Session</h3>
+<form action="/setup" method="POST">
+    <label>Seating:</label>
+    <input type="checkbox" name="seating" required>
+    
+    <label>Food Prep:</label>
+    <input type="checkbox" name="foodPrep" required>
+
+    <label>Transition:</label>
+    <input type="checkbox" name="transition" required>
+
+    <label>Tools/Utensils:</label>
+    <input type="checkbox" name="tools" required>
+
+    <label>Comments:</label>
+    <input type="text" name="setUpComments" size="100" maxlength="500" value="100" required>
+
+
+    <button type="submit" >Set Up Complete</button>
+  </form>
+
+  <h3>Feeding Session</h3>
+
+        <div class="timer">
+            <span class="hour">00</span>:<span class="minute">00</span>:<span class="second">10</span>
+        </div>
+        <div class="control">
+            <button onClick="timer.start(1000)">Start</button> 
+            <button onClick="timer.stop()">Stop</button> 
+            <button onClick="timer.reset(60)">Reset</button> 
+            <button onClick="timer.mode(1)">Count up</button> 
+            <button onClick="timer.mode(0)">Count down</button>
+        </div>
+
+  <form action="/setUp" method="POST">
+    <label>Date:</label>
+    <input type="datetime-local">
+
+    <label> </label>
+    <input type="text" name="text" >
+    
+    <input type="text" name="text" >
+    <button type="submit" >Set Up Complete</button>
+  </form>
+  
+  
+<%- include('../partials/footer') %>
