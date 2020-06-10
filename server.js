@@ -19,7 +19,8 @@ require('./config/database');
 app.set('view engine', 'ejs');
 
 // require our routes
-const indexRoutes = require('./routes/index');
+const indexRouter = require('./routes/index');
+const setupsRouter = require('./routes/setups');
 
 
 //Mount middleware
@@ -28,6 +29,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
+app.use('/setups', setupsRouter);
 
 // Mount middleware here
 //const session = require('express-session');
@@ -42,7 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 //app.use(passport.session());
 
 //mount routes w/ app
-app.use('/', indexRoutes);
+app.use('/', indexRouter);
 
 
 

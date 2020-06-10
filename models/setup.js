@@ -7,14 +7,18 @@ const feedingSessionSchema = new Schema({
   createdBy: ObjectId,
   setUp: ObjectId, 
   perOral: String,
-  aspiration: Boolean,
+  aspiration: { type: Boolean, default: false}, 
   volume: Number,
-  exploredFoods: Boolean,
+  exploredFoods: { 
+    type: String,
+    enum: ['No Exporing', 'Visually', 'Fingers', 'Hands', 'Face', 'Lips', 'Tongue', 'Mouth']
+  },
   description: String
 
 }, { timestamps:true});
 
-const setUpSchema = new Schema({
+const setupSchema = new Schema({
+  patientName: String,
   seating: Boolean,
   createdBy: ObjectId,
   foodPrep: Boolean,
@@ -27,4 +31,4 @@ const setUpSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('setUp', setUpSchema);
+module.exports = mongoose.model('Setup', setupSchema);
