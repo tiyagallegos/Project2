@@ -1,7 +1,8 @@
 module.exports = {
     new: newSetup,
     create,
-    index
+    index,
+    show
 };
 
 function newSetup(req, res) {
@@ -13,8 +14,12 @@ function create(req, res) {
 }
 
 function index(req, res) {
-    res.render('/index');
+    res.render('setups/index');
 }
+
+    function show(req, res) {
+        res.render('setups/show');
+       }
 //const setup = new setup(req.body);
 //setup.save(function(err) {
 //    if (err) return res.render('setups/new');

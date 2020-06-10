@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/', setupsRouter);
 app.use('/', notesRouter);
-
+//mount the notes router ....
 
 //tell app to listen
 app.listen(port, () => {
