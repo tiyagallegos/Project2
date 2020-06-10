@@ -1,31 +1,31 @@
-const Student = require('../models/student');
+const User = require('../models/user');
 
 module.exports = {
   index,
-  addFact,
-  delFact
+  addComment,
+  delComment
 };
 
 function index(req, res, next) {
-  Student.find({}, function(err, students) {
-   res.render('students/index', {
-    students,
+  User.find({}, function(err, users) {
+   res.render('users/index', {
+    users,
     user: req.user
     });
  });
 }
 
-function addFact(req, res) {
+function addComment(req, res) {
   req.user.facts.push(req.body);
   req.user.save(function(err) {
-    res.redirect('/students');
+    res.redirect('/users');
   });
 }
 
-function delFact(req, res) {
+function delComment(req, res) {
   req.user.facts.splice(req.params.id, 1);
   req.user.save(function(err) {
-    res.redirect('/students');
+    res.redirect('/users');
   });
 
 }

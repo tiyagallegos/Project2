@@ -13,7 +13,7 @@ function create(req, res) {
 }
 
 function index(req, res) {
-    res.render('index');
+    res.render('/index');
 }
 //const setup = new setup(req.body);
 //setup.save(function(err) {

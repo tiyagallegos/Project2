@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const feedingSessionSchema = new Schema({
   date: Date,
   lengthOfSession: Number,
-  createdBy: ObjectId,
-  setUp: ObjectId, 
+//  createdBy: ObjectId,
+ // setUp: ObjectId, 
   perOral: String,
   aspiration: { type: Boolean, default: false}, 
   volume: Number,
@@ -20,7 +20,7 @@ const feedingSessionSchema = new Schema({
 const setupSchema = new Schema({
   patientName: String,
   seating: Boolean,
-  createdBy: ObjectId,
+//  createdBy: ObjectId,
   foodPrep: Boolean,
   transition: Boolean, 
   tools: Boolean,

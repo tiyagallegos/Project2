@@ -37,12 +37,18 @@
     <label>Date:</label>
     <input type="datetime-local">
 
-    <label> </label>
-    <input type="text" name="text" >
-    
-    <input type="text" name="text" >
+    <label>Length of Session:</label>
+    <input type="number" name="LengthOfSession" >
+
+    <label>Per Oral: </label>
+    <select name="PerOral" value= "PerOral" required>
+      <option value="Food">Food</option>
+      <option value="Liquid">Liquid</option>
+  </select>
+      
     <button type="submit" >Set Up Complete</button>
   </form>
   
+  <a href="/flights/new">Add New Flight</a> <br><br>
   
 <%- include('../partials/footer') %>

@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 // require our routes
 const indexRouter = require('./routes/index');
 const setupsRouter = require('./routes/setups');
-
+const notesRouter = require('./routes/notes');
 
 //Mount middleware
 app.use(express.static('public'));
@@ -29,7 +29,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
-app.use('/setups', setupsRouter);
+
 
 // Mount middleware here
 //const session = require('express-session');
@@ -45,7 +45,8 @@ app.use('/setups', setupsRouter);
 
 //mount routes w/ app
 app.use('/', indexRouter);
-
+app.use('/', setupsRouter);
+app.use('/', notesRouter);
 
 
 //tell app to listen
