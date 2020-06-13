@@ -11,7 +11,7 @@ router.get('/auth/google', passport.authenticate(
   router.get('/oauth2callback', passport.authenticate(
     'google',
     {
-      successRedirect : '/setups',
+      successRedirect : '/users',
       failureRedirect : '/'
     }
   ));
@@ -20,5 +20,8 @@ router.get('/auth/google', passport.authenticate(
     req.logout();
     res.redirect('/');
   });
+
+  router.get('/users', usersCtrl.index);
+  router.post('/users', usersCtrl.create);
 
 module.exports = router;

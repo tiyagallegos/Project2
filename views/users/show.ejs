@@ -1,1 +1,29 @@
 <!----Show patient's med info, progress notes-->
+<h1><%= p.name %>'s Feeding Profile</h1>
+
+<table id="list">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Diagnoses</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% user.forEach(function(p) {%>
+          <tr>
+            <td><%= p.name %></td>
+            <td><%= p.age %></td>
+            <td><%= p.diagnoses %></td>
+            <td><a href="/users/show<%= p._id %>">View Full Profile</a></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+
+      <% user.forEach(function(note) {%>
+      <ol>
+          <li><%= note.date %></li>
+      </ol>
+      

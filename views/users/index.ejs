@@ -1,8 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
+  <title>Document</title>
+</head>
+<body>
 <h1>Patients</h1>
 
-<h4>Add A Patient</h4>
 
-<p>Feeding Pateints: </p>
+<a href="/users/new">Add A Patient</a>
+
+
+<p>Select A Feeding Patient: </p>
+
+<table id="list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Diagnoses</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% user.forEach(function(p) {%>
+        <tr>
+          <td><%= p.name %></td>
+          <td><%= p.age %></td>
+          <td><%= p.diagnoses %></td>
+          <td><a href="/users/show<%= p._id %>">View Full Profile</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    
 
 <!-----Pull info from form and save on this page if availale if not add patient-->
 <!-----if pt present, option to delete a paitent with an alert 
