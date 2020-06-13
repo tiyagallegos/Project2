@@ -9,7 +9,8 @@ const patientSchema = new Schema ({
     age: Number,
     birthdate: Number,
     allergies: String,
-    diagnoses: String
+    diagnoses: String,
+    history: String
 });
 
 

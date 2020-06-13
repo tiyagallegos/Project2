@@ -3,15 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer src="./js/script.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-
   <title>Document</title>
 </head>
 <body>
@@ -29,9 +20,6 @@
             <button onClick="timer.mode(0)">Count down</button>
         </div>
 
-
-
-
   <form action="/setUp" method="POST">
     <label>Date:</label>
     <input type="datetime-local">
@@ -41,17 +29,38 @@
 
     <label>Per Oral: </label>
     <select name="PerOral" value= "PerOral" required>
-      <option value="Food">Food</option>
-      <option value="Liquid">Liquid</option>
-  </select>
-      
-  <h1>Show up</h1>
+      <input name="PerOral"  value="Food">Food</input>
+    
+ 
 
+  <label >Liquids</label>
+  <input name="liquids" value="Food">Food</input>
+
+
+   
+    <div class="input-field col s12">
+        <label >Explored With: </label>
+        <input name="explored" type="text">
+        <select multiple>
+          <option value="" disabled selected>Choose your option(s)</option>
+          <option value="1">Visual Attention</option>
+          <option value="1">Finger Tips</option>
+          <option value="2">Whole Hands</option>
+          <option value="3">Face</option>
+          <option value="3">Lips</option>
+          <option value="3">Mouth</option>
+          <option value="3">Tongue</option>
+        </select>
+        
+      </div>
+      <label>Session Notes: </label>
+      <input type="text" name="sessionNotes" >
 
     <button type="submit" >Session Completed</button>
+
   </form>
   
-  <a href="/setups/show">nav to show Conrimation page</a> <br><br>
+  <a href="/setups/show">nav to show Confirmation page</a> <br><br>
   <a href="/">Homepage!</a><br><br>
 
 
