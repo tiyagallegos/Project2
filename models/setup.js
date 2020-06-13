@@ -11,9 +11,9 @@ const feedingSessionSchema = new Schema({
   volume: Number,
   exploredFoods: { 
     type: String,
-    enum: ['No Exporing', 'Visually', 'Fingers', 'Hands', 'Face', 'Lips', 'Tongue', 'Mouth']
+    enum: ['No Exploring', 'Visually', 'Fingers', 'Hands', 'Face', 'Lips', 'Tongue', 'Mouth']
   },
-  description: String
+  qualitativeData: String
 
 }, { timestamps:true});
 

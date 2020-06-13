@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const indexCtrl = require('../controllers/index');
 const passport = require('passport');
-
-
-router.get('/', indexCtrl.index);
-
+const usersCtrl = require('../controllers/users');
 
 router.get('/auth/google', passport.authenticate(
     'google',

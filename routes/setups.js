@@ -3,7 +3,7 @@ const router = express.Router();
 const setupsCtrl = require('../controllers/setups');
 
 // GET to add new setup page 
-router.get('/setups/new', setupsCtrl.new);
+router.post('/setups/new', setupsCtrl.new);
 
 //route to confimration page displaying all session data
 router.get('/setups/show', setupsCtrl.show);

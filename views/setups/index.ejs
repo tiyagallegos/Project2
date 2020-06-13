@@ -3,30 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
   <title>Document</title>
 </head>
 <body>
   
 
-<h3>Complete Setup Prior to Starting Your Feeding Session</h3>
-<form action="/setup" method="POST">
-    <label>Seating:</label>
-    <input type="checkbox" name="seating" required>
-    
-    <label>Food Prep:</label>
-    <input type="checkbox" name="foodPrep" required>
+<h3>Feeding Setup</h3>
+<h4>Please Complete Prior to Feeding Session</h4>
 
-    <label>Transition:</label>
-    <input type="checkbox" name="transition" required>
-
-    <label>Tools/Utensils:</label>
-    <input type="checkbox" name="tools" required>
-
-    <label>Comments:</label>
-    <input type="text" name="setUpComments" size="100" maxlength="500" value="100" required>
+ 
+ 
+ <form id="setupForm" action="/setups/new" method="POST"> 
+  <label>Pt Name: </label>
+  <input name="patientName" type="text">
 
 
-  
+  <p>
+    <label>
+      <input name="seating" type="checkbox" class="filled-in" />
+      <span>Seating</span>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input name="foodPrep" type="checkbox" class="filled-in" />
+      <span>Food Prep</span>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input name="transitions" type="checkbox" class="filled-in" />
+      <span>Transition</span>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input name="seating" type="checkbox" class="filled-in"/>
+      <span>Seating</span>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input name="tools" type="checkbox" class="filled-in"  />
+      <span>Tools&Utensils</span>
+    </label>
+  </p>
+  <label>Comments:</label>
+  <input type="text" name="comments" size="100" maxlength="500" value="Setup-comments" > <br>
+
+
+<button type="submit"> Setup Completed</button>
+
+</form>
+         
+
+  <p>prev setups stored by date+ pt name showing push that data into view</p>
   </form>
   <a href="/setups/new">Start Feeding!</a>
   <br><br>

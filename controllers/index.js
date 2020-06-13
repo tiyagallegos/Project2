@@ -1,7 +1,10 @@
+//const Index = require('../model/setup')
+
 module.exports = {
     index
 };
 
 function index(req, res) {
-    res.render('index');
+    res.render('index', {user: req.user});
 }
+

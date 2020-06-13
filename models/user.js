@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 The factSchema is used to embedded docs in as student doc.
 There is no model and no 'facts' collection
 */
-const patientsSchema = new Schema ({
+const patientSchema = new Schema ({
     name: String,
     age: Number,
     birthdate: Number,
@@ -17,10 +17,12 @@ const userSchema = new Schema({
   name: String,
   email: String,
   avatarURL: String,
-  patientNames: [ ],
+  patientInfo: [patientSchema],
+  setup: [{type: Schema.Types.ObjectId, ref: 'Setup'}],
+  note: [{type: Schema.Types.ObjectId, ref: 'Note'}],
   googleId: String
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('User', userSchema);

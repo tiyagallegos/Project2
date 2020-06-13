@@ -2,18 +2,18 @@
 const express = require('express');
 const morgan = require('morgan');
 const port = 3000;
-//const passport = require('passport');
+const passport = require('passport');
 const methodOverride = require('method-override');
 
 // We'll need to load the env var
-//require('dotenv').config();
+require('dotenv').config();
 
 // Setup the Express app
 const app = express();
 
 // connect to the MongoDB with mongoose
 require('./config/database');
-//require('./config/passport');
+require('./config/passport');
 
 // configure app w/ app.set()
 app.set('view engine', 'ejs');
@@ -32,16 +32,16 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Mount middleware here
-//const session = require('express-session');
-//app.use(session({
-// secret: 'Cyberpunks', 
-//  resave: false,
-//  saveUninitialized: true
-//}))
+const session = require('express-session');
+app.use(session({
+ secret: 'Cyberpunks', 
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Add passport middleware here
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //mount routes w/ app
 app.use('/', indexRouter);

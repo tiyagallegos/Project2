@@ -4,9 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yummy!</title>
+  <head>
+    <title>SEIR-Flex Student Fun Facts</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-  <h1>P2</h1>
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">YuMMY</a>
+    </div>
+  </nav>
+ <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <ul class="center hide-on-med-and-down">
+      <li><a href="sass.html">Feeding & Swallowing Disorders</a></li>
+      <li><a href="sass.html">Getting Started</a></li>
+      <li><a href="badges.html">Diets & Supplies</a></li>
+      <li><a href="badges.html">Caregiver Resources</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+        
+          <div>
+            <!-- Place Login UI Here -->
+            <% if (user) { %>
+              <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+              <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <% } %>
+          </div>
   <p>A Feeding Data Traker: agile, adaptable, and easy to use application to track and 
     interpret feeding progress through notes intended for both therapists and families</p>
   <p>put in nav bar, login, and links complete oauth tomorrow</p>

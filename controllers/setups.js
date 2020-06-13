@@ -1,12 +1,32 @@
+const Setup = require('../models/setup');
+const User = require('../models/user');
+
 module.exports = {
     new: newSetup,
     create,
+    userIndex,
     index,
     show
 };
 
+function userIndex(req, res, next) {
+    User.find({}, function(err, users) {
+     res.render('setups/index', {
+      users,
+      user: req.user
+      });
+   });
+  }
+
 function newSetup(req, res) {
- res.render('setups/new');
+    req.body.seating = !!req.body.seating //typecast
+    req.body.foodPrep = !!req.body.foodPrep
+    req.body.transition = !!req.body.transition
+    Setup.create(req.body, function(err, setup) {
+        console.log(err, setup);
+        res.render('setups/new');
+
+    });
 }
 
 function create(req, res) {
