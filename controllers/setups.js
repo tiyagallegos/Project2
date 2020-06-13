@@ -6,7 +6,8 @@ module.exports = {
     create,
     userIndex,
     index,
-    show
+    show,
+    newFeeding
 };
 
 function userIndex(req, res, next) {
@@ -22,11 +23,22 @@ function newSetup(req, res) {
     req.body.seating = !!req.body.seating //typecast
     req.body.foodPrep = !!req.body.foodPrep
     req.body.transition = !!req.body.transition
+    req.body.tools = !!req.body.tools
     Setup.create(req.body, function(err, setup) {
         console.log(err, setup);
         res.render('setups/new');
-
     });
+}
+
+function newFeeding(req, res) {
+    req.body.aspiration = !!req.body.aspiration 
+    Setup.find(req.params.id, function(err, setup) {
+    setup.feedingSchema.push(req.body);
+    setup.save(function(err, setup) {
+        res.render('setups/show')
+    });
+    console.log(`Setups: ${setup.feedingSchema}`);
+});
 }
 
 function create(req, res) {

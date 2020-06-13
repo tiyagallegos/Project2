@@ -1,15 +1,25 @@
-<h1>Add A New Patient: </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  </title>
+</head>
+<body>
+<h1>Patient Intake Form: </h1>
 
 
-<form action="/users/index" method="POST">
+<form action="/users/show" method="POST" name="addPatientForm">
 <label>Full Name: </label>
   <input name="name" type="text"> <br> <br>
 
   <label> Date of Birth: </label>
-  <input name="birthdate" type="text"><br> <br>
+  <input name="birthdate" type="date" value=""> <br> <br>
 
   <label>Age: </label>
-  <input name="age" type="text"><br> <br>
+  <input name="age" type="number" min="0" max="18" value="1">years
+  <input name="age" type="number" min="0" max="12" value="1">months<br> <br>
+
 
   <label> Allergies: </label>
   <input name="allergies" type="text"><br> <br>
@@ -18,9 +28,15 @@
   <input name="diagnoses" type="text"><br> <br>
 
   <label>Developmental History: </label>
-  <input name="history" type="text"><br> <br>
+  <textarea name="history" type="text" rows="4" cols="50"> </textarea><br> <br>
+
 
   <label>Feeding and Swallowing Concerns: </label>
-  <input name="concerns" type="text"><br> <br>
+  <textarea name="concerns" type="text" rows="4" cols="50"> </textarea><br> <br>
+
+  <button type="submit">Add Patient</button>
 
 </form>
+
+</body>
+</html>

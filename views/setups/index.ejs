@@ -12,15 +12,19 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
 
-  <title>Document</title>
+  <title>YuMMY!</title>
 </head>
 <body>
   
-
-<h3>Feeding Setup</h3>
+<!---help!  p.name 's as reference in header!-->
+<h3> Feeding Setup</h3>
 <p>Please complete feeding setup per therapist reccommendations</p>
 
  <form id="setupForm" action="/setups/new" method="POST"> 
+
+  <label>Date:</label>
+    <input type="date">
+
   <p>
     <label>
       <input name="seating" type="checkbox" class="filled-in" />
@@ -47,26 +51,18 @@
   </p>
   <p>
   <label>Comments:</label>
-  <input type="text" name="comments" size="100" maxlength="500" value="Setup-comments" > <br>
+  <textarea type="text" name="comments" size="100" maxlength="500" value="Setup-comments" > </textarea><br>
 </p>
 
 <button type="submit"> Setup Completed</button>
 
 </form>
 
-<p>Use Previous Setup</p>
 
-<% setups.forEach(function(setup){ %>
-<ul>
-  <li><%=setup.date%></li> 
-</ul>
-});
-</form>
+
 <!--Add link to nav to each setup and option to use setup link to empty set up form, then back to
 normal route filling out feeding session info-->
 
-  
-  <a href="/setups/new">Start Feeding!</a>
   <br><br>
   <a href="/">Homepage!</a>
 </body>

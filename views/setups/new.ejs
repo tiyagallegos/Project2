@@ -3,61 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="/js/script.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
 
 <h3>Feeding Session</h3>
 
-        <div class="timer">
-            <span class="hour">00</span>:<span class="minute">00</span>:<span class="second">10</span>
-        </div>
-        <div class="control">
-            <button onClick="timer.start(1000)">Start</button> 
-            <button onClick="timer.stop()">Stop</button> 
-            <button onClick="timer.reset(60)">Reset</button> 
-            <button onClick="timer.mode(1)">Count up</button> 
-            <button onClick="timer.mode(0)">Count down</button>
-        </div>
+<div class="container">
+    <h4 class="title">Start Timer Prior to Feeding</h4>
+    <h1 id="timerLabel">00:00:00</h1>
+    <input type="button" class="myButton" onclick="start()" value="START" id="startBtn">
+    <input type="button" class="myButton" onclick="stop()" value="STOP">
+    <input type="button" class="myButton" onclick="reset()" value="RESET">
+</div> <br><br>
 
   <form action="/setups/show" method="POST">
     <label>Date:</label>
-    <input type="datetime-local">
+    <input type="datetime-local"> <br><br>
 
     <label>Length of Session:</label>
-    <input type="number" name="LengthOfSession" >
+    <input type="number" name="LengthOfSession" min="0" max="3" required> Hours 
+    <input type="number" min="0" max="59" name="LengthOfSession" required> Minutes <br><br>
+
     
     <label>Foods</label>
-    <input type="text" name="foods" value="">
+    <select name="foods" id="foods">
+        <option value="softSolid">Reg Soild</option>
+        <option value="softSolid">Soft Soild</option>
+        <option value="puree">Puree</option>
+    </select>
+        <input type="text" name="foods"> 
+        <label >Volume</label>
+        <input type="number" name="voume" value=""> <select name="volume" id="volume">
+          <option value="tsp">tsp</option>
+          <option value="tbs">tbs</option>
+          <option value="oz">oz</option>
+          <option value="cups">cups</option>
+          <option value="mL">mL</option>
+          <option value="other">Other</option>
+        </select>
+        <label>
+            <input name="aspiration" type="checkbox" class="filled-in"  />
+            <span>Aspiration</span>
+          </label><br><br>
     
- 
+    <label>Liquids:</label>
 
-  <label >Liquids</label>
-  <input type="text" name="liquids" value="">
+    <select name="liquids" id="liquids">
+        <option value="thinLiquid">Thins</option>
+        <option value="ntl">NTL</option>
+        <option value="htl">HTL</option>
+    </select>
+        <input type="text" name="liquids">
+        <label >Volume</label>
+        <input type="number" name="voume" value=""> <select name="volume" id="volume">
+          <option value="tsp">tsp</option>
+          <option value="tbs">tbs</option>
+          <option value="oz">oz</option>
+          <option value="cups">cups</option>
+          <option value="mL">mL</option>
+          <option value="other">Other</option>
+        </select>
+        <label>
+            <input name="aspiration" type="checkbox" class="filled-in"  />
+            <span>Aspiration</span>
+          </label><br><br>
 
-  <p>
-    <label>
-      <input name="aspiration" type="checkbox" class="filled-in" />
-      <span>Aspiration</span>
-    </label>
-  </p>
-
-  <label >Volume</label>
-  <input type="number" name="voume" value=""> <select name="volume" id="volume">
-    <option value="tsp">tsp</option>
-    <option value="tbs">tbs</option>
-    <option value="oz">oz</option>
-    <option value="cups">cups</option>
-    <option value="mL">mL</option>
-    <option value="other">Other</option>
-  </select>
-  
-   
-    <div class="input-field col s12">
         <label >Exploration: </label>
-        <input name="exploration" type="text">
-        <select multiple>
-          <option value="" disabled selected>Choose your option(s)</option>
+        <select required> <!--ability to select multiple?-->
           <option value="None">None</option>
           <option value="Visual">Visual</option>
           <option value="Fingers">Fingers</option>
@@ -65,11 +82,11 @@
           <option value="Face">Face</option>
           <option value="Lips">Lips</option>
           <option value="Tongue">Tongue</option>
-        </select>
+        </select> <br> <br>
         
       </div>
       <label>Summary: </label>
-      <input type="text" name="summary" >
+      <textarea name="summary" id="" cols="30" rows="10"></textarea>
 
     <button type="submit" >Session Completed</button>
 

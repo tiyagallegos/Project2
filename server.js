@@ -21,7 +21,8 @@ app.set('view engine', 'ejs');
 // require our routes
 const indexRouter = require('./routes/index');
 const setupsRouter = require('./routes/setups');
-const notesRouter = require('./routes/notes');
+//const notesRouter = require('./routes/notes');
+const usersRouter = require('./routes/users');
 
 //Mount middleware
 app.use(express.static('public'));
@@ -46,7 +47,8 @@ app.use(passport.session());
 //mount routes w/ app
 app.use('/', indexRouter);
 app.use('/', setupsRouter);
-app.use('/', notesRouter);
+//app.use('/', notesRouter);
+app.use('/', usersRouter);
 //mount the notes router ....
 
 //tell app to listen

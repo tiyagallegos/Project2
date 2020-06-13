@@ -3,11 +3,13 @@ const User = require('../models/user');
 module.exports = {
   userIndex,
   index,
-  addPatient
+  addPatient,
+  create
 };
 
-function userIndex(req, res, next) {
+function userIndex(req, res) {
     User.find({}, function(err, users) {
+        console.log(users)
      res.render('users/index', {
       users,
       user: req.user
@@ -19,12 +21,13 @@ function userIndex(req, res, next) {
     res.render('users', {user: req.user});
 }
 
-
 function addPatient(req, res) {
-    User.findById(req.params.id, function(err, user)
-    user.patients.push(req.body.patientschema);
-    user.save(function(err) {
-      res.redirect('/users/${user.id}');
-    });
-  }
+    res.render('users/new', {user: req.user});
+}
+
+function create(req, res) {
+    User.patientInfo.push(req.body);
+    console.log(req.body)
+    res.render('user', {user: req.user});
+}
 
