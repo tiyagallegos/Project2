@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const setupSchema = new Schema;
 
 const noteSchema = new Schema({
-    date: Number,
+    date: Date,
     setups: [ setupSchema], 
     comments: String},
     {timestamps: true });

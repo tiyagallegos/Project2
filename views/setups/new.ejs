@@ -20,40 +20,56 @@
             <button onClick="timer.mode(0)">Count down</button>
         </div>
 
-  <form action="/setUp" method="POST">
+  <form action="/setups/show" method="POST">
     <label>Date:</label>
     <input type="datetime-local">
 
     <label>Length of Session:</label>
     <input type="number" name="LengthOfSession" >
-
-    <label>Per Oral: </label>
-    <select name="PerOral" value= "PerOral" required>
-      <input name="PerOral"  value="Food">Food</input>
+    
+    <label>Foods</label>
+    <input type="text" name="foods" value="">
     
  
 
   <label >Liquids</label>
-  <input name="liquids" value="Food">Food</input>
+  <input type="text" name="liquids" value="">
 
+  <p>
+    <label>
+      <input name="aspiration" type="checkbox" class="filled-in" />
+      <span>Aspiration</span>
+    </label>
+  </p>
 
+  <label >Volume</label>
+  <input type="number" name="voume" value=""> <select name="volume" id="volume">
+    <option value="tsp">tsp</option>
+    <option value="tbs">tbs</option>
+    <option value="oz">oz</option>
+    <option value="cups">cups</option>
+    <option value="mL">mL</option>
+    <option value="other">Other</option>
+  </select>
+  
    
     <div class="input-field col s12">
-        <label >Explored With: </label>
-        <input name="explored" type="text">
+        <label >Exploration: </label>
+        <input name="exploration" type="text">
         <select multiple>
           <option value="" disabled selected>Choose your option(s)</option>
-          <option value="1">Visual Attention</option>
-          <option value="1">Finger Tips</option>
-          <option value="2">Whole Hands</option>
-          <option value="3">Face</option>
-          <option value="3">Lips</option>
-          <option value="3">Tongue</option>
+          <option value="None">None</option>
+          <option value="Visual">Visual</option>
+          <option value="Fingers">Fingers</option>
+          <option value="Hands">Hands</option>
+          <option value="Face">Face</option>
+          <option value="Lips">Lips</option>
+          <option value="Tongue">Tongue</option>
         </select>
         
       </div>
-      <label>Session Notes: </label>
-      <input type="text" name="sessionNotes" >
+      <label>Summary: </label>
+      <input type="text" name="summary" >
 
     <button type="submit" >Session Completed</button>
 

@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Progress Note Completed <%= note.date %> </title>
 </head>
 <body>
+    <h2>Setup Details</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Seating:</th>
+            <th>Food Prep: </th>
+            <th>Transition: </th>
+            <th>Tools & Utentils: </th>
+            <th>Comments: </th>
+          </tr>
+        </thead>
+        <% note._id(function(setup) { %>
+          <tr>
+            <td><%= setup.seating %> </td>
+            <td><%= setup.foodPrep %> </td>
+            <td><%= setup.transition %> </td>
+            <td><%= setup.tools %> </td>
+            <td><%= setup.comments %> </td>
+          </tr>
+          <% }); %>
+          </table>
+
+    <h2>Feeding Data</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Length of Session:</th>
+            <th>Foods: </th>
+            <th>Liquids: </th>
+            <th>Aspiration: </th>
+            <th>Volume: </th>
+            <th>Exploration: </th>
+            <th>Summary: </th>
+          </tr>
+        </thead>
+        <% note._id(function(feeding) { %>
+          <tr>
+            <td><%= feeding.lengthOfSession %> </td>
+            <td><%= feeding.foods %> </td>
+            <td><%= feeding.liquids %> </td>
+            <td><%= feeding.aspiration %> </td>
+            <td><%= feeding.volume %> </td>
+            <td><%= feeding.exploration %> </td>
+            <td><%= feeding.summary %> </td>
+          </tr>
+          <% }); %>
+          </table>
+    
+          
+        
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <p>this page will pull essentially the data filled out from set up and feedingsession pushed
         to setup and ask for confirmation prior to submitting note. 
     </p>

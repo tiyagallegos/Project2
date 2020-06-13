@@ -14,16 +14,21 @@
           <tr>
             <td><%= p.name %></td>
             <td><%= p.age %></td>
+            <td><%= p.birthdate %></td>
+            <td><%= p.allergies %></td>
             <td><%= p.diagnoses %></td>
-            <td><a href="/users/show<%= p._id %>">View Full Profile</a></td>
+            <td><%= p.history %></td>
+            <td><%= p.concerns %></td>
           </tr>
           <% }); %>
         </tbody>
       </table>
 
-
+      <label> Progress Notes</label>
       <% user.forEach(function(note) {%>
-      <ol>
+      <ul>
           <li><%= note.date %></li>
-      </ol>
+          <a  id="details-button" href="/notes/<%= note._id %>">View Full Note</a>
+      </ul>
       
+      <a href="/users/index">Back to User Profile</a>

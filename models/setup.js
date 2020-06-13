@@ -6,18 +6,20 @@ const feedingSessionSchema = new Schema({
   lengthOfSession: Number,
 //  createdBy: ObjectId,
  // setUp: ObjectId, 
-  perOral: String,
+  foods: String,
+  liquids: String,
   aspiration: { type: Boolean, default: false}, 
   volume: Number,
-  exploredFoods: { 
+  exploration: { 
     type: String,
-    enum: ['No Exploring', 'Visually', 'Fingers', 'Hands', 'Face', 'Lips', 'Tongue', 'Mouth']
+    enum: ['None', 'Visual', 'Fingers', 'Hands', 'Face', 'Lips', 'Tongue']
   },
-  qualitativeData: String
+  summary: String
 
 }, { timestamps:true});
 
 const setupSchema = new Schema({
+  date: Date,
   patientName: String,
   seating: Boolean,
 //  createdBy: ObjectId,

@@ -7,7 +7,7 @@ There is no model and no 'facts' collection
 const patientSchema = new Schema ({
     name: String,
     age: Number,
-    birthdate: Number,
+    birthdate: Date,
     allergies: String,
     diagnoses: String,
     history: String,
