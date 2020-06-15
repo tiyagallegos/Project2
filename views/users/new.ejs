@@ -11,28 +11,28 @@
 
 <form action="/users/show" method="POST" name="addPatientForm">
 <label>Full Name: </label>
-  <input name="name" type="text"> <br> <br>
+  <input name="name" type="text" required> <br> <br>
 
   <label> Date of Birth: </label>
-  <input name="birthdate" type="date" value=""> <br> <br>
+  <input name="birthdate" type="date" value="" required> <br> <br>
 
   <label>Age: </label>
-  <input name="age" type="number" min="0" max="18" value="1">years
-  <input name="age" type="number" min="0" max="12" value="1">months<br> <br>
+  <input name="age" type="number" min="0" max="18" value="1" required>years
+  <input name="age" type="number" min="0" max="12" value="1" required>months<br> <br>
 
 
   <label> Allergies: </label>
-  <input name="allergies" type="text"><br> <br>
+  <input name="allergies" type="text" required><br> <br>
 
   <label> Diagnoses: </label>
-  <input name="diagnoses" type="text"><br> <br>
+  <input name="diagnoses" type="text" required><br> <br>
 
   <label>Developmental History: </label>
-  <textarea name="history" type="text" rows="4" cols="50"> </textarea><br> <br>
+  <textarea name="history" type="text" rows="4" cols="50" required> </textarea><br> <br>
 
 
   <label>Feeding and Swallowing Concerns: </label>
-  <textarea name="concerns" type="text" rows="4" cols="50"> </textarea><br> <br>
+  <textarea name="concerns" type="text" rows="4" cols="50" required> </textarea><br> <br>
 
   <button type="submit">Add Patient</button>
 
