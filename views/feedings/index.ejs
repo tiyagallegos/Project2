@@ -1,0 +1,37 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yummy!</title>
+</head>
+<body>
+    <h1>Start Feeding Session</h1>
+    
+    
+    <table>
+            <thead>
+              <tr>
+                <th>Date of Session</th>
+                <th>Aspiration</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% user.setups.forEach(function(s) {%>
+                <tr>
+                  <td><a href= <%=`users/${s._id}/setups`%>><%= s.date %></a></td>
+                  <td><a href="/setup/show<%= s._id %>">View Full Feeding Note</a></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+  <a href="/">Homepage!</a>
+  <br><br>
+  
+           
+        

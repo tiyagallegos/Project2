@@ -10,60 +10,25 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-
   <title>YuMMY!</title>
 </head>
 <body>
   
-<!---help!  p.name 's as reference in header!-->
-<h3> Feeding Setup</h3>
-<p>Please complete feeding setup per therapist reccommendations</p>
-
- <form id="setupForm" action=<%=`/users/${p._id}/setups`%> method="POST"> 
-
-  <label>Date:</label>
-    <input type="date">
-
-  <p>
-    <label>
-      <input name="seating" type="checkbox" class="filled-in" />
-      <span>Seating</span>
-    </label>
-  </p>
-  <p>
-    <label>
-      <input name="foodPrep" type="checkbox" class="filled-in" />
-      <span>Food Prep</span>
-    </label>
-  </p>
-  <p>
-    <label>
-      <input name="transitions" type="checkbox" class="filled-in" />
-      <span>Transition</span>
-    </label>
-  </p>
-  <p>
-    <label>
-      <input name="tools" type="checkbox" class="filled-in"  />
-      <span>Tools&Utensils</span>
-    </label>
-  </p>
-  <p>
-  <label>Comments:</label>
-  <textarea type="text" name="comments" size="100" maxlength="500" value="Setup-comments" > </textarea><br>
-</p>
-
-<button type="submit"> Setup Completed</button>
-
-</form>
-
-
-
-<!--Add link to nav to each setup and option to use setup link to empty set up form, then back to
-normal route filling out feeding session info-->
-
-  <br><br>
-  <a href="/">Homepage!</a>
-</body>
-</html>
+<h1>Start Feeding Setup</h1>
+    
+    
+<table>
+        <thead>
+          <tr>
+            <th>Setup Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% user.setups.forEach(function(s) {%>
+            <tr>
+              <td><a href= <%=`users/${s._id}/setups`%>><%= s.date %></a></td>
+              <td><a href="/setup/show<%= s._id %>">View Full Setup</a></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
