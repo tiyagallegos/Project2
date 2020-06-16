@@ -34,8 +34,9 @@
     <tbody>
         <% user.patientInfo.forEach(function(p) {%>
         <tr>
-          <td><%= p.name %></td>
-          <td><%= p.age %></td>
+          <td><a href= <%=`users/${p._id}/setups`%>><%= p.name %></a></td>
+          <td><%= p.ageYear %></td>
+          <td><%= p.ageMonth %></td>
           <td><%= p.diagnoses %></td>
           <td><a href="/users/show<%= p._id %>">View Full Profile</a></td>
         </tr>

@@ -21,8 +21,11 @@ router.get('/auth/google', passport.authenticate(
     res.redirect('/');
   });
 
+
+
   router.get('/users', usersCtrl.index);
-  router.post('/users/show', usersCtrl.create);
+  router.post('/users', usersCtrl.create);
   router.get('/users/new', usersCtrl.addPatient);
+  router.get('/users/:id', usersCtrl.show);
 
 module.exports = router;

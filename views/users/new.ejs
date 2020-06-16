@@ -9,7 +9,7 @@
 <h1>Patient Intake Form: </h1>
 
 
-<form action="/users/show" method="POST" name="addPatientForm">
+<form action="/users" method="POST" name="addPatientForm">
 <label>Full Name: </label>
   <input name="name" type="text" required> <br> <br>
 
@@ -17,8 +17,8 @@
   <input name="birthdate" type="date" value="" required> <br> <br>
 
   <label>Age: </label>
-  <input name="age" type="number" min="0" max="18" value="1" required>years
-  <input name="age" type="number" min="0" max="12" value="1" required>months<br> <br>
+  <input name="ageYear" type="number" min="0" max="18" value="1" required>years
+  <input name="ageMonth" type="number" min="0" max="12" value="1" required>months<br> <br>
 
 
   <label> Allergies: </label>

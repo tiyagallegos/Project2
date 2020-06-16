@@ -3,11 +3,10 @@ const User = require('../models/user');
 
 module.exports = {
     new: newSetup,
-    create,
     userIndex,
     index,
     show,
-    newFeeding
+    feeding
 };
 
 function userIndex(req, res, next) {
@@ -26,11 +25,11 @@ function newSetup(req, res) {
     req.body.tools = !!req.body.tools
     Setup.create(req.body, function(err, setup) {
         console.log(err, setup);
-        res.render('setups/new');
+        res.redirect('/setups/index');
     });
 }
 
-function newFeeding(req, res) {
+function feeding(req, res) {
     req.body.aspiration = !!req.body.aspiration 
     Setup.find(req.params.id, function(err, setup) {
     setup.feedingSchema.push(req.body);
@@ -41,17 +40,16 @@ function newFeeding(req, res) {
 });
 }
 
-function create(req, res) {
-    req.body.foodPrep = !!req.body.foodPrep;
-}
 
 function index(req, res) {
-    res.render('setups/index');
+    res.render('setups/index', {setups: req.user.patientInfo, p: req.user});
 }
 
     function show(req, res) {
         res.render('setups/show');
        }
+
+
 //const setup = new setup(req.body);
 //setup.save(function(err) {
 //    if (err) return res.render('setups/new');

@@ -1,5 +1,5 @@
 <!----Show patient's med info, progress notes-->
-<h1><%= p.name %>'s Feeding Profile</h1>
+<h1> Feeding Profile</h1>
 
 <table id="list">
     <thead>
@@ -10,11 +10,12 @@
         </tr>
       </thead>
       <tbody>
-          <% user.forEach(function(p) {%>
+          <% user.patientInfo.forEach(function(p) {%>
           <tr>
             <td><%= p.name %></td>
-            <td><%= p.age %></td>
-            <td><%= p.birthdate %></td>
+            <td><%= p.ageYear %></td>
+            <td><%= p.ageMonth %></td>
+            <td><%= p.birthdate.toLocaleString() %></td>
             <td><%= p.allergies %></td>
             <td><%= p.diagnoses %></td>
             <td><%= p.history %></td>
@@ -24,11 +25,4 @@
         </tbody>
       </table>
 
-      <label> Progress Notes</label>
-      <% user.forEach(function(note) {%>
-      <ul>
-          <li><%= note.date %></li>
-          <a  id="details-button" href="/notes/<%= note._id %>">View Full Note</a>
-      </ul>
-      
-      <a href="/users">Back to User Profile</a>
+     <a href="/users">User Index</a>

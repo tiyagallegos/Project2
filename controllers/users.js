@@ -4,7 +4,8 @@ module.exports = {
   userIndex,
   index,
   addPatient,
-  create
+  create,
+  show
 };
 
 function userIndex(req, res) {
@@ -26,8 +27,21 @@ function addPatient(req, res) {
 }
 
 function create(req, res) {
-    User.patientInfo.push(req.body);
-    console.log(req.body)
-    res.render('user', {user: req.user});
+    console.log(req.user.patientInfo);
+    req.user.patientInfo.push(req.body);
+    req.user.save(function(err){
+        console.log(err)
+        res.redirect(`users/${req.user._id}`);
+   });
 }
+
+function show(req, res) {
+    res.render('users/show', {user: req.user})
+}
+//    User.find, function(err, users) {
+//        console.log(users)
+//        res.render('users/show', {users})
+//    });
+//}
+
 

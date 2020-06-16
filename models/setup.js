@@ -9,7 +9,7 @@ const feedingSessionSchema = new Schema({
   foods: String,
   liquids: String,
   aspiration: { type: Boolean, default: false}, 
-  volume: Number,
+  volume: String,
   exploration: { 
     type: String,
     enum: ['None', 'Visual', 'Fingers', 'Hands', 'Face', 'Lips', 'Tongue']

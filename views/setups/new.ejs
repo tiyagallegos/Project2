@@ -21,7 +21,7 @@
     <input type="button" class="myButton" onclick="reset()" value="RESET">
 </div> <br><br>
 
-  <form action="/setups/show" method="POST">
+  <form action= <%=`/users/${p._id}/setups`%> method="POST">
     <label>Date:</label>
     <input type="datetime-local"> <br><br>
 
