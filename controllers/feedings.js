@@ -5,7 +5,7 @@ const User = require('../models/user');
    module.exports = {
       index,
       show,
-      new: newComment,
+      new: newfeeding,
       userIndex
    };
 
@@ -26,18 +26,16 @@ const User = require('../models/user');
    }
 
    function show(req, res) {
-    Setup.find({}, function(err, setups) {
-      res.render('notes/show', {
-        setups});
-      })
+      res.render('feedings/show', `Setups: ${setup.feedingSchema}`, setups);
   }
    
-  function newComment(req, res) {
-    Setup.find({}, function(err, setups) {
-      res.render('notes/new', {
-        setups});
-      })
-  }
-  
-
-     
+  function newfeeding(req, res) {
+    req.body.aspiration = !!req.body.aspiration 
+    Setup.find(req.params.id, function(err, setup) {
+    setup.feedingSchema.push(req.body);
+    setup.save(function(err, setup) {
+        res.render('feedings/show')
+    });
+    console.log(`Setups: ${setup.feedingSchema}`);
+});
+}

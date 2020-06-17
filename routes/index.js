@@ -28,4 +28,6 @@ router.get('/auth/google', passport.authenticate(
 
   router.get('/users', usersCtrl.index);
 
+  
+
 module.exports = router;

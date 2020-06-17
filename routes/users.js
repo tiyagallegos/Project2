@@ -26,6 +26,9 @@ router.get('/auth/google', passport.authenticate(
   router.get('/users', usersCtrl.index);
   router.post('/users', usersCtrl.create);
   router.get('/users/new', usersCtrl.addPatient);
-  router.get('/users/:id', usersCtrl.show);
+  router.get('/users/:id', usersCtrl.showAll);
+  router.get('/patients/:id/show', usersCtrl.showOne);
+  router.delete('/users/:id', usersCtrl.delPatient);
+  //router.get('/patients/:id/edit', usersCtrl.updatePatient);
 
 module.exports = router;

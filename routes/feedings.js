@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const notesCtrl = require('../controllers/notes');
+const notesCtrl = require('../controllers/feedings');
 const usersCtrl = require('../controllers/users');
 
 

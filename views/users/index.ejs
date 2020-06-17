@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -29,20 +30,29 @@
         <th>Name</th>
         <th>Age</th>
         <th>Diagnoses</th>
+        <th>Full Profile</th>
+        <th>Delete Patient</th>
+       
       </tr>
     </thead>
     <tbody>
         <% user.patientInfo.forEach(function(p) {%>
         <tr>
           <td><a href= <%=`users/${p._id}/setups`%>><%= p.name %></a></td>
-          <td><%= p.ageYear %></td>
-          <td><%= p.ageMonth %></td>
+          <td><%= p.ageYear %>:<%= p.ageMonth %></td>
           <td><%= p.diagnoses %></td>
-          <td><a href="/users/show<%= p._id %>">View Full Profile</a></td>
+          <td><a href="/patients/<%= p._id %>/show"> 👀 </a></td>
+          <td><form action="/users/<%=p._id%>?_method=DELETE" method="POST">
+            <button type="submit">⛔️</button></td>
+          <td><a href="/users/show<%= p._id %>">View All Paitent Profiles </a></td>
+          </form>
         </tr>
         <% }); %>
+        
       </tbody>
     </table>
+    
+<a href="/">Home</a>
     
 
 <!-----Pull info from form and save on this page if availale if not add patient-->

@@ -5,7 +5,10 @@ module.exports = {
   index,
   addPatient,
   create,
-  show
+  showAll,
+  delPatient,
+  showOne
+  
 };
 
 function userIndex(req, res) {
@@ -35,9 +38,27 @@ function create(req, res) {
    });
 }
 
-function show(req, res) {
-    res.render('users/show', {user: req.user})
+function showAll(req, res) {
+    console.log(req.user.patientInfo)
+    res.render('users/show', {user: req.user, p: req.body})  
 }
+
+function delPatient(req, res) {
+    req.user.patientInfo.splice(req.params.id, 1);
+    req.user.save(function(err) {
+      res.redirect('/users');
+    });
+  
+  }
+  function showOne(req, res) {
+    req.user.patientInfo
+    console.log(req.user.patientInfo)
+    res.render(`patients/${req.user._id}/show`, {user: req.user})  
+}
+  
+   
+//skill: Skill.getOne(req.params.id),
+//skillNum: parseInt(req.params.id) + 1
 //    User.find, function(err, users) {
 //        console.log(users)
 //        res.render('users/show', {users})

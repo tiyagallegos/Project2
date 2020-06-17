@@ -14,13 +14,23 @@ const patientSchema = new Schema ({
     history: String,
     concerns: String
 });
-
+const reviewSchema = new Schema({
+    userName: String, 
+    content: String,
+    rating: {
+      type:Number,
+      min: 1,
+      max: 5,
+      default: 5
+    }
+  }, { timestamps:true});
 
 const userSchema = new Schema({
   name: String,
   email: String,
   avatarURL: String,
   patientInfo: [patientSchema],
+  reviews: [reviewSchema],
   setup: [{type: Schema.Types.ObjectId, ref: 'Setup'}],
   note: [{type: Schema.Types.ObjectId, ref: 'Note'}],
   googleId: String

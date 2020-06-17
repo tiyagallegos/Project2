@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Progress Note Completed <%= note.date %> </title>
+    <title> Progress Note Completed </title>
 </head>
 <body>
     <h2>Setup Details</h2>
@@ -17,7 +17,7 @@
             <th>Comments: </th>
           </tr>
         </thead>
-        <% note._id(function(setup) { %>
+        <% setup._id(function(setup) { %>
           <tr>
             <td><%= setup.seating %> </td>
             <td><%= setup.foodPrep %> </td>

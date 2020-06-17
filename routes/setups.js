@@ -4,11 +4,11 @@ const setupsCtrl = require('../controllers/setups');
 const usersCtrl = require('../controllers/users');
 
 // GET to add new setup page 
-router.post('/users/:UserId/setups', setupsCtrl.new);
-router.get('/users/:UserId/feeding', setupsCtrl.feeding);
+router.post('/users/:UserId/setups', setupsCtrl.newSetup);
+//router.get('/users/:UserId/feeding', setupsCtrl.feeding);
 //route to confimration page displaying all session data
-router.get('/setups/show', setupsCtrl.feeding);
-router.get('/setups/index', setupsCtrl.index);
+//router.get('/setups/show', setupsCtrl.feeding);
+//router.get('/setups/index', setupsCtrl.index);
 //this route will respond to posted setup sending back to index to complete rest of form or actually
 //*** cahnge this to route to send to feedingsession index form when completed???
 

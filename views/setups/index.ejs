@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-            <% user.setups.forEach(function(s) {%>
+            <% user.setups.forEach(function(p) {%>
             <tr>
               <td><a href= <%=`users/${s._id}/setups`%>><%= s.date %></a></td>
               <td><a href="/setup/show<%= s._id %>">View Full Setup</a></td>

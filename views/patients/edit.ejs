@@ -5,7 +5,8 @@
     <thead>
         <tr>
           <th>Name</th>
-          <th>Age</th>
+          <th>Age: year</th>
+          <th>Months </th>
           <th>Birthday</th>
           <th>Allergies</th>
           <th>Diagnoses</th>
@@ -18,8 +19,9 @@
           <% user.patientInfo.forEach(function(p) {%>
           <tr>
             <td><%= p.name %></td>
-            <td><%= p.ageYear %>:<%= p.ageMonth %></td>
-            <td><%= p.birthdate.toLocaleDateString()%></td>
+            <td><%= p.ageYear %></td>
+            <td><%= p.ageMonth %></td>
+            <td><%= p.birthdate.toLocaleString()%></td>
             <td><%= p.allergies %></td>
             <td><%= p.diagnoses %></td>
             <td><%= p.history %></td>

@@ -2,16 +2,16 @@ const Setup = require('../models/setup');
 const User = require('../models/user');
 
 module.exports = {
-    new: newSetup,
+    newSetup,
     userIndex,
     index,
     show,
-    feeding
+    
 };
 
 function userIndex(req, res, next) {
     User.find({}, function(err, users) {
-     res.render('setups/index', {
+     res.render('setups/', {
       users,
       user: req.user
       });
@@ -25,28 +25,20 @@ function newSetup(req, res) {
     req.body.tools = !!req.body.tools
     Setup.create(req.body, function(err, setup) {
         console.log(err, setup);
-        res.redirect('/setups/index');
+        res.redirect('/setups/new', {users, user: req.user});
     });
 }
 
-function feeding(req, res) {
-    req.body.aspiration = !!req.body.aspiration 
-    Setup.find(req.params.id, function(err, setup) {
-    setup.feedingSchema.push(req.body);
-    setup.save(function(err, setup) {
-        res.render('setups/show')
-    });
-    console.log(`Setups: ${setup.feedingSchema}`);
-});
-}
+
 
 
 function index(req, res) {
-    res.render('setups/index', {setups: req.user.patientInfo, p: req.user});
+    res.render('setups', { user: req.user});
 }
 
+
     function show(req, res) {
-        res.render('setups/show');
+        res.render('setups/show',{users, user: req.user, setups: req.user.patientInfo, p: req.user} );
        }
 
 

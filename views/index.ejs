@@ -15,7 +15,13 @@
     <link rel="stylesheet" href="/css/style.css" />
     <!-- JavaScript for Materialize -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
+    <!---Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
 <body>
   <nav>
       <div class="nav-wrapper">
@@ -36,26 +42,26 @@
       <li><a href="sass.html">Getting Started</a></li>
       <li><a href="badges.html">Diets & Supplies</a></li>
       <li><a href="badges.html">Caregiver Resources</a></li>
+      <li><% if (user) { %>
+        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+      <% } else { %>
+        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+      <% } %></li>
       <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      
     </ul>
   </div>
 </nav>
         
-          <div>
-            <!-- Place Login UI Here -->
-            <% if (user) { %>
-              <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-            <% } else { %>
-              <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-            <% } %>
-          </div>
+         
   <p>A Feeding Data Traker: agile, adaptable, and easy to use application to track and 
     interpret feeding progress through notes intended for both therapists and families</p>
-  <p>put in nav bar, login, and links complete oauth tomorrow</p>
-  <a href="/setups">Start Your Session!</a> <br><br>
   
-  <h4>YuMMY Reviews</h4>
+  <a href="/users">User Homepage</a> <br><br>
+  
+
+
+  <h4> Reviews</h4>
   <table>
     <thead>
       <tr>
@@ -66,8 +72,51 @@
     </thead>
     <tbody>
 
-    
+      
+      <form id="add-review-form" action="/" method="POST">
+        <label>Rating</label>
+    <select name="rating" id="rating">
+      <option value="1">⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+    </select> <br><br>
+        <label>Comments:</label>
+        <textarea name="content"></textarea>
+        
+        <button type="submit" value="Add Review">Add Review</button>
+      </form> 
 
+      
+      <% if (user && user.reviews.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Review</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let total = 0; %>
+            <% user.reviews.forEach(function(review) { %>
+              <% total += review.rating %>
+              <tr>
+                <td><%= review.createdAt.toLocaleDateString() %></td>
+                <td><%= review.content %></td>
+                <td><%= review.rating %></td>
+              </tr>
+            <% }); %>
+            <tr>
+              <td colspan="2"></td>
+              <td><strong><%= (total / user.reviews.length).toFixed(1) %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Reviews Yet</h5>
+      <% } %>
    
    
 </body>
