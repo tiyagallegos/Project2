@@ -15,6 +15,7 @@ router.post('/users/:UserId/setups', setupsCtrl.newSetup);
 
 //get to index
 router.get(`/users/:userId/setups`, setupsCtrl.index);
+router.get(`/users/:userId/setups/new`, setupsCtrl.newPage);
 
 router.get('/users', usersCtrl.index);
 

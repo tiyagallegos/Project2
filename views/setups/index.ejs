@@ -14,7 +14,8 @@
 </head>
 <body>
   
-<h1>Start Feeding Setup</h1>
+<h1>Select a Feeding Setup Below OR</h1>
+<a href="/setups/<%=user.patientInfo._id %>/new">Create New Setup</a>
     
     
 <table>
@@ -24,10 +25,10 @@
           </tr>
         </thead>
         <tbody>
-            <% user.setups.forEach(function(p) {%>
+            <% user.setup.forEach(function(p) {%>
             <tr>
-              <td><a href= <%=`users/${s._id}/setups`%>><%= s.date %></a></td>
-              <td><a href="/setup/show<%= s._id %>">View Full Setup</a></td>
+              <td><a href= <%=`users/${p._id}/setups`%>><%= p.date %></a></td>
+              <td><a href="/setups/show<%= p._id %>">View Full Setup</a></td>
             </tr>
             <% }); %>
           </tbody>

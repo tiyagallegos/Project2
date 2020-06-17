@@ -53,7 +53,7 @@ function delPatient(req, res) {
   function showOne(req, res) {
     req.user.patientInfo
     console.log(req.user.patientInfo)
-    res.render(`patients/${req.user._id}/show`, {user: req.user})  
+    res.render(`users/${req.user._id}/show`, {user: req.user})  
 }
   
    

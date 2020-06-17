@@ -6,6 +6,7 @@ module.exports = {
     userIndex,
     index,
     show,
+    newPage
     
 };
 
@@ -34,6 +35,10 @@ function newSetup(req, res) {
 
 function index(req, res) {
     res.render('setups', { user: req.user});
+}
+
+function newPage(req, res) {
+    res.render('setups/new', { user: req.user});
 }
 
 
