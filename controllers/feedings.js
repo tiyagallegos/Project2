@@ -1,4 +1,4 @@
-const Note = require('../models/note');
+const Note = require('../models/feeding');
 const Setup = require('../models/setup');
 const User = require('../models/user');
 

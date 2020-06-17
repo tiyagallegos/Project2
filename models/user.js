@@ -32,7 +32,7 @@ const userSchema = new Schema({
   patientInfo: [patientSchema],
   reviews: [reviewSchema],
   setup: [{type: Schema.Types.ObjectId, ref: 'Setup'}],
-  note: [{type: Schema.Types.ObjectId, ref: 'Note'}],
+  feeding: [{type: Schema.Types.ObjectId, ref: 'Feeding'}],
   googleId: String
 }, {
   timestamps: true
