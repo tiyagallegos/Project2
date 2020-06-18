@@ -6,7 +6,8 @@ const User = require('../models/user');
       index,
       show,
       new: newfeeding,
-      userIndex
+      userIndex,
+      indexForm
    };
 
    function userIndex(req, res, next) {
@@ -39,3 +40,7 @@ const User = require('../models/user');
     console.log(`Setups: ${setup.feedingSchema}`);
 });
 }
+
+function indexForm(req, res) {
+    res.render('feedings/new')
+    }

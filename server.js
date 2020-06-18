@@ -1,7 +1,7 @@
 //Require modules
 const express = require('express');
 const morgan = require('morgan');
-const port = 3000;
+const port = process.env.PORT || '3000';
 const passport = require('passport');
 const methodOverride = require('method-override');
 
@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 // require our routes
 const indexRouter = require('./routes/index');
 const setupsRouter = require('./routes/setups');
-//const notesRouter = require('./routes/notes');
+const feedingsRouter = require('./routes/feedings');
 const usersRouter = require('./routes/users');
 
 //Mount middleware
@@ -47,7 +47,7 @@ app.use(passport.session());
 //mount routes w/ app
 app.use('/', indexRouter);
 app.use('/', setupsRouter);
-//app.use('/', notesRouter);
+app.use('/', feedingsRouter);
 app.use('/', usersRouter);
 //mount the notes router ....
 

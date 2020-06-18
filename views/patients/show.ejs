@@ -17,17 +17,19 @@
       </thead>
       <tbody>
          
+        
           <tr>
-            <td><%= req.user.name %></td>
-            <td><%= req.user.ageYear %></td>
-            <td><%= req.user.ageYear %>:<%= p.ageMonth %></td>
-            <td><%= req.user.birthdate.toLocaleString()%></td>
-            <td><%= req.user.allergies %></td>
-            <td><%= req.user.diagnoses %></td>
-            <td><%= req.user.history %></td>
-            <td><%= req.user.concerns %></td>
+            <td><%= patient.name %></td>
+            <td><%= patient.ageYear %>:<%= patient.ageMonth %></td>
+            <td><%= patient.birthdate%></td>
+            <td><%= patient.allergies %></td>
+            <td><%= patient.diagnoses %></td>
+            <td><%= patient.history %></td>
+            <td><%= patient.concerns %></td>
           </tr>
-          <% }); %>
+       
+        </tbody>
+      </table>
         </tbody>
       </table>
 

@@ -30,7 +30,6 @@ function addPatient(req, res) {
 }
 
 function create(req, res) {
-    console.log(req.user.patientInfo);
     req.user.patientInfo.push(req.body);
     req.user.save(function(err){
         console.log(err)
@@ -44,16 +43,16 @@ function showAll(req, res) {
 }
 
 function delPatient(req, res) {
-    req.user.patientInfo.splice(req.params.id, 1);
+    req.user.patientInfo.pull(req.params.id);
     req.user.save(function(err) {
       res.redirect('/users');
     });
   
   }
   function showOne(req, res) {
-    req.user.patientInfo
-    console.log(req.user.patientInfo)
-    res.render(`users/${req.user._id}/show`, {user: req.user})  
+   const patient = req.user.patientInfo.id(req.params.id)
+   console.log(patient);
+    res.render('patients/show', {user: req.user, patient})  
 }
   
    

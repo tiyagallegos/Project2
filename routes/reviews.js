@@ -8,6 +8,6 @@ const reviewsCtrl = require('../controllers/reviews');
 
 
 router.post('/', reviewsCtrl.create);
-router.delete('/:id', reviewsCtrl.delete);
-router.delete('/:id', reviewsCtrl.edit);
-router.put('/:id', reviewsCtrl.update);
+router.delete('/', reviewsCtrl.delete);
+router.edit('/', reviewsCtrl.edit);
+router.put('/', reviewsCtrl.update);

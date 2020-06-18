@@ -6,9 +6,11 @@ module.exports = {
     userIndex,
     index,
     show,
-    newPage
+    newPage,
+    
     
 };
+
 
 function userIndex(req, res, next) {
     User.find({}, function(err, users) {
@@ -26,7 +28,7 @@ function newSetup(req, res) {
     req.body.tools = !!req.body.tools
     Setup.create(req.body, function(err, setup) {
         console.log(err, setup);
-        res.redirect('/setups/new', {users, user: req.user});
+        res.redirect('/feedings/new');
     });
 }
 

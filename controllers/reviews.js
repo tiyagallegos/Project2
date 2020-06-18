@@ -18,9 +18,14 @@ function create(req, res) {
       res.redirect('/');
     });
   }
-
+  req.user.patientInfo.push(req.body);
+  req.user.save(function(err){
+      console.log(err)
+      res.redirect(`users/${req.user._id}`);
+ });
+}
   function delReview(req, res) {
-    req.user.reviews.splice(req.params.id, 1);
+    req.user.reviews.pull(req.params.id);
     req.user.save(function(err) {
       res.redirect('/');
     });

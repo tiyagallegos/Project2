@@ -10,7 +10,7 @@ const usersCtrl = require('../controllers/users');
 //router.get('/:id', notesCtrl.show);
 router.get('/feedings', feedingsCtrl.index);
 
-router.get('/feedings/new', feedingsCtrl.new);
+router.get('/feedings/new', feedingsCtrl.indexForm);
 
 router.get('/feedings/show', feedingsCtrl.show);
 
