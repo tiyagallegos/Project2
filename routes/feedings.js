@@ -4,16 +4,18 @@ const feedingsCtrl = require('../controllers/feedings');
 const usersCtrl = require('../controllers/users');
 
 
-
-//router.post('/setups/:id/notes/new',notesCtrl.create)
-
-//router.get('/:id', notesCtrl.show);
-router.get('/feedings', feedingsCtrl.index);
-
+//route to new feeding form
 router.get('/feedings/new', feedingsCtrl.indexForm);
 
+
+//route to all feedings per id
+router.get('/feedings', feedingsCtrl.index);
+//router.post('/feedings', feedingsCtrl.create)
+
+//route to show a feeding 
 router.get('/feedings/show', feedingsCtrl.show);
 
+//route to get to home page for users
 router.get('/users', usersCtrl.index);
 
 

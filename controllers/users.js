@@ -7,9 +7,24 @@ module.exports = {
   create,
   showAll,
   delPatient,
-  showOne
-  
+  showOne,
+  edit,
+  updatePatient
 };
+
+function edit(req, res) {
+  res.render('patients/edit', {user: req.user, p: req.body})
+};
+  
+function updatePatient(req, res) {
+  req.user.patientInfo.push(req.body);
+  console.log(req.body)
+  req.user.save(function(err){
+    console.log(err)
+  res.render('patients/show', {user: req.user, p: req.body})
+});
+}
+
 
 function userIndex(req, res) {
     User.find({}, function(err, users) {

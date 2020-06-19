@@ -10,7 +10,27 @@
   <title>Document</title>
 </head>
 <body>
-
+  <h2>Setup Details</h2>
+  <table>
+      <thead>
+        <tr>
+          <th>Seating:</th>
+          <th>Food Prep: </th>
+          <th>Transition: </th>
+          <th>Tools & Utentils: </th>
+          <th>Comments: </th>
+        </tr>
+      </thead>
+      <% user.setup.id(function(setup) { %>
+        <tr>
+          <td><%= setup.seating %> </td>
+          <td><%= setup.foodPrep %> </td>
+          <td><%= setup.transition %> </td>
+          <td><%= setup.tools %> </td>
+          <td><%= setup.comments %> </td>
+        </tr>
+        <% }); %>
+        </table>
 <h3>Feeding Session</h3>
 
 <div class="container">
@@ -21,7 +41,7 @@
     <input type="button" class="myButton" onclick="reset()" value="RESET">
 </div> <br><br>
 
-  <form action= <%=`/users/${p._id}/setups`%> method="POST">
+  <form action="/feedings/show" method="POST">
     <label>Date:</label>
     <input type="datetime-local"> <br><br>
 
