@@ -7,3 +7,9 @@ mongoose.connect(process.env.DATABASE_URL, {
 	useUnifiedTopology: true,
 	useCreateIndex: true
   });
+
+  const db = mongoose.connection;
+
+  db.on('connected', function() {
+	  console.log(`mongoose connected to: {db.host}:${db.port}`);
+  });
