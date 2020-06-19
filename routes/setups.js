@@ -19,5 +19,5 @@ router.get(`/users/:id/setups/new`, setupsCtrl.newPage);
 router.post('/setups', setupsCtrl.newSetup);
 
 router.get('/users', usersCtrl.index);
-
+/
 module.exports = router;
