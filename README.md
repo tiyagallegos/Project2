@@ -40,6 +40,8 @@ Feeding Setup Form:
 ![Feeding Setup Form](public/images/5.png)
 
 ## Getting Started
+Explore information and resources about feeding/swallowing disorder on the landing page.
+Login with google to use features including creating a patient, adding/deleting/updating patient info, and creating setups and feeding session notes.
 https://p2-yummy.herokuapp.com/
 
 ## Trello board
