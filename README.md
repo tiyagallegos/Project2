@@ -30,14 +30,14 @@ Landing Page:
 
 
 Patient Index:
-![Patient Index](images/2.png)
+![Patient Index](public/images/2.png)
 
 
 Patient Intake Form:
-![Patient Intake Form](images/3.png)
+![Patient Intake Form](public/images/3.png)
 
 Feeding Setup Form:
-![Feeding Setup Form](images/5.png)
+![Feeding Setup Form](public/images/5.png)
 
 ## Getting Started
 https://p2-yummy.herokuapp.com/
