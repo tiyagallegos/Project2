@@ -7,6 +7,8 @@ module.exports = {
     index,
     show,
     newPage,
+    feedingPage,
+    showPage
     
     
 };
@@ -28,7 +30,7 @@ function newSetup(req, res) {
     req.body.tools = !!req.body.tools
     Setup.create(req.body, function(err, setup) {
         console.log(err, setup);
-        res.redirect('/feedings/new');
+        res.redirect(`/setups/${setup._id}/feedings/new`);
     });
 }
 
@@ -40,12 +42,19 @@ function index(req, res) {
 }
 
 function newPage(req, res) {
-    res.render('setups/new', { user: req.user});
+    res.render('setups/new', { user: req.user, patientid: req.params.id });
 }
-
+function feedingPage(req, res) {
+    res.render('feedings/new', { user: req.user, setupId: req.params.id});
+}
 
     function show(req, res) {
         res.render('setups/show',{users, user: req.user, setups: req.user.patientInfo, p: req.user} );
+       }
+
+
+       function showPage(req, res) {
+        res.render('setups/show',{user: req.user, setup: req.body, setupId: req.params.id} );
        }
 
 

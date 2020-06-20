@@ -15,12 +15,17 @@
   <title>YuMMY!</title>
 </head>
 <body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center"> 🍭 YuMMY!🥣 </a>
+  </div>
+</nav>
   
 <!---help!  p.name 's as reference in header!-->
 <h3> Feeding Setup</h3>
 <p>Please complete feeding setup per therapist reccommendations</p>
 
- <form id="setupForm" action=<%=`/users/${user.patientInfo._id}/setups`%> method="POST"> 
+ <form id="setupForm" action="/users/<%= patientid %>/setups" method="POST"> 
 
   <label>Date:</label>
     <input type="date">
@@ -64,6 +69,7 @@
 normal route filling out feeding session info-->
 
   <br><br>
-  <a href="/">Homepage!</a>
+
+  <a href="setups/show"></a>
 </body>
 </html>

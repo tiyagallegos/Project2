@@ -14,3 +14,47 @@
     }
   }
   
+
+.box {
+  background-image: url(https://lh3.googleusercontent.com/proxy/6w-PH2M_7Fn7__-QgTFAa-KzWA4VTSmqkNMzyiJEebF54drAhuZIWytsVhtuHP9Mp2kgYa1bl2kUSK07yNjlQMZU65i9fjtgww1vxgfbgbE6abUuhnYz0bBoJv_Hlyfk7w);
+  background-color: #9f91ee;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+
+body {
+  background-color: #9f91ee;
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+
+.message {
+  
+  text-align: center;
+  text-decoration: none;
+
+  align-items: center;
+  justify-content: center;
+  filter: alpha(opacity=30);
+    -moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+
+}
+.about{
+  color: black;
+  text-align: center;
+}

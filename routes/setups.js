@@ -16,8 +16,13 @@ router.post('/users/:UserId/setups', setupsCtrl.newSetup);
 //get to index
 router.get(`/users/:id/setups`, setupsCtrl.index);
 router.get(`/users/:id/setups/new`, setupsCtrl.newPage);
-router.post('/setups', setupsCtrl.newSetup);
+//router.post('/feedings/new', setupsCtrl.newSetup);
 
+router.post('/users/:id/setups', setupsCtrl.newSetup);
+
+router.get(`/setups/:id/feedings/new`, setupsCtrl.feedingPage);
+
+router.get(`/users/:id/setups/show`, setupsCtrl.showPage);
 router.get('/users', usersCtrl.index);
 
 module.exports = router;

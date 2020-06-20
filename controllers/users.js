@@ -13,15 +13,16 @@ module.exports = {
 };
 
 function edit(req, res) {
-  res.render('patients/edit', {user: req.user, p: req.body})
+  const patient = req.user.patientInfo.id(req.params.id)
+  res.render('patients/edit', {user: req.user, patient})
 };
   
 function updatePatient(req, res) {
-  req.user.patientInfo.push(req.body);
-  console.log(req.body)
+  const patient = req.user.patientInfo.id(req.params.id)
+  patient.overwrite(req.body)
   req.user.save(function(err){
     console.log(err)
-  res.render('patients/show', {user: req.user, p: req.body})
+  res.render('patients/show', {user: req.user, patient})
 });
 }
 

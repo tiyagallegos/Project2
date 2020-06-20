@@ -23,7 +23,7 @@ router.get('/auth/google', passport.authenticate(
 
 
   router.get('/patients/:id/edit', usersCtrl.edit);
-  router.put('/patients/:id/show', usersCtrl.updatePatient);
+  router.put('/users/:id', usersCtrl.updatePatient);
 
 
   router.get('/users', usersCtrl.index);

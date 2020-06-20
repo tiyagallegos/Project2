@@ -13,9 +13,14 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
 
-  <title>Document</title>
+  <title>YuMMY!</title>
 </head>
 <body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center"> 🍭 YuMMY!🥣 </a>
+  </div>
+</nav>
 <h1>Patients</h1>
 
 
@@ -42,8 +47,8 @@
           <td><%= p.name %></a></td>
           <td><%= p.ageYear %>:<%= p.ageMonth %></td>
           <td><%= p.diagnoses %></td>
-          <td><a href="/patients/<%= p._id %>/show"> 👀 </a></td>
-          <td><a href= <%=`users/${p._id}/setups`%>>Start Setup</td>
+          <td><a href="/patients/<%= p._id %>/show"> 📔 </a></td>
+          <td><a href="/users/<%=p._id%>/setups/new">🍽</td>
           <td><form action="/users/<%=p._id%>?_method=DELETE" method="POST">
             <button type="submit">⛔️</button></form></td> 
         </tr>
@@ -52,7 +57,7 @@
       </tbody>
     </table>
     <a href="/users/show">View All Paitent Profiles </a> <br><br>
-<a href="/">Home</a>
+
     
 
 <!-----Pull info from form and save on this page if availale if not add patient-->

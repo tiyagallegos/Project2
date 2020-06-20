@@ -23,7 +23,7 @@ function create(req, res) {
       console.log(err)
       res.redirect(`users/${req.user._id}`);
  });
-}
+
   function delReview(req, res) {
     req.user.reviews.pull(req.params.id);
     req.user.save(function(err) {

@@ -1,4 +1,25 @@
 <!----Show patient's med info, progress notes-->
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/><!----Show patient's med info, progress notes-->
+  <title>YuMMY!</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center"> 🍭 YuMMY!🥣 </a>
+  </div>
+</nav>
 <h1> Feeding Profile</h1>
 
 <table id="list">
@@ -11,6 +32,7 @@
           <th>Diagnoses</th>
           <th>Medical History</th>
           <th>Feeding Concerns</th>
+          <th>Progress Notes</th>
 
         </tr>
       </thead>
@@ -24,6 +46,7 @@
             <td><%= p.diagnoses %></td>
             <td><%= p.history %></td>
             <td><%= p.concerns %></td>
+            <td><a href="/feedings"></a>📝 </td>
           </tr>
           <% }); %>
         </tbody>

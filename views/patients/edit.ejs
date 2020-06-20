@@ -1,5 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/><!----Show patient's med info, progress notes-->
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center"> 🍭 YuMMY!🥣 </a>
+  </div>
+</nav>
 <!----Show patient's med info, progress notes-->
-<h1> Feeding Profile</h1>
+<h1> Patient Profile</h1>
 
 <table id="list">
     <thead>
@@ -16,62 +35,51 @@
         </tr>
       </thead>
       <tbody>
-          <% user.patientInfo.forEach(function(p) {%>
           <tr>
-            <td><%= p.name %></td>
-            <td><%= p.ageYear %></td>
-            <td><%= p.ageMonth %></td>
-            <td><%= p.birthdate.toLocaleString()%></td>
-            <td><%= p.allergies %></td>
-            <td><%= p.diagnoses %></td>
-            <td><%= p.history %></td>
-            <td><%= p.concerns %></td>
+            <td><%= patient.name %></td>
+            <td><%= patient.ageYear %></td>
+            <td><%= patient.ageMonth %></td>
+            <td><%= patient.birthdate.toLocaleDateString()%></td>
+            <td><%= patient.allergies %></td>
+            <td><%= patient.diagnoses %></td>
+            <td><%= patient.history %></td>
+            <td><%= patient.concerns %></td>
           </tr>
-          <% }); %>
         </tbody>
-      </table>
+      </table> <br><br>
 
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  </title>
-</head>
-<body>
-<h1>Update Patinet Info: </h1>
+  <a href="/patients/<%= patient._id %>/show">Show indv patient</a> <br> <br>
+     <a href="/users">Back to Patients Index</a>
+<h3>Update Patient Info: </h3>
 
 
-<form action="/users" method="POST" name="addPatientForm">
+<form action="/users/<%= patient._id %>?_method=PUT"  method="POST" name="addPatientForm">
 <label>Full Name: </label>
-  <input name="name" type="text" required> <br> <br>
+  <input name="name" type="text" value= "<%= patient.name %>"required> <br> <br>
 
   <label> Date of Birth: </label>
-  <input name="birthdate" type="date" value="" required> <br> <br>
+  <input name="birthdate" type="date" value="<%= patient.birthdate.toLocaleDateString()%>" required> <br> <br>
 
   <label>Age: </label>
-  <input name="ageYear" type="number" min="0" max="18" value="1" required>years
-  <input name="ageMonth" type="number" min="0" max="12" value="1" required>months<br> <br>
+  <input name="ageYear" type="number" min="0" max="18" value="<%= patient.ageYear %>" required>years
+  <input name="ageMonth" type="number" min="0" max="12" value="<%= patient.ageMonth %>" required>months<br> <br>
 
 
   <label> Allergies: </label>
-  <input name="allergies" type="text" required><br> <br>
+  <input name="allergies" type="text" value="<%= patient.allergies %>" required><br> <br>
 
   <label> Diagnoses: </label>
-  <input name="diagnoses" type="text" required><br> <br>
+  <input name="diagnoses" type="text" value="<%= patient.diagnoses %>" required><br> <br>
 
   <label>Developmental History: </label>
-  <textarea name="history" type="text" rows="4" cols="50" required> </textarea><br> <br>
-
+  <textarea name="history" type="text" value="<%= patient.history %>" rows="4" cols="50"  required> </textarea><br> <br>
 
   <label>Feeding and Swallowing Concerns: </label>
-  <textarea name="concerns" type="text" rows="4" cols="50" required> </textarea><br> <br>
+  <textarea name="concerns" type="text" rows="4" cols="50" value="<%= patient.concerns %>" required> </textarea><br> <br>
 
-  <button type="submit">Add Patient</button>
+  <button type="submit">update Patient</button>
 
 </form>
 
 </body>
 </html>
-<a href="/patients/<%= p._id %>/show">Show indv patient</a>
-     <a href="/users">Back to Patients Index</a>

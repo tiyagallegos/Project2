@@ -1,17 +1,37 @@
-<!----Show patient's med info, progress notes-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/><!----Show patient's med info, progress notes-->
+<title>YuMMY!</title>
+ <body>
+   
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center"> 🍭 YuMMY!🥣 </a>
+  </div>
+</nav>
 <h1> Feeding Profile</h1>
 
 <table id="list">
     <thead>
         <tr>
           <th>Name</th>
-          <th>Age: year</th>
-          <th>Months </th>
+          <th>Age</th>
           <th>Birthday</th>
           <th>Allergies</th>
           <th>Diagnoses</th>
           <th>Medical History</th>
           <th>Feeding Concerns</th>
+          <th>Progress Notes</th>
 
         </tr>
       </thead>
@@ -21,16 +41,19 @@
           <tr>
             <td><%= patient.name %></td>
             <td><%= patient.ageYear %>:<%= patient.ageMonth %></td>
-            <td><%= patient.birthdate%></td>
+            <td><%= patient.birthdate.toLocaleDateString()%></td>
             <td><%= patient.allergies %></td>
             <td><%= patient.diagnoses %></td>
             <td><%= patient.history %></td>
             <td><%= patient.concerns %></td>
+            <td><a href="/feedings"></a>📝 </td>
           </tr>
        
         </tbody>
       </table>
         </tbody>
       </table>
-      <a href="/patients/<%= p._id %>/edit">Show indv patient</a>
+      <a href="/patients/<%= patient._id %>/edit">Edit patient</a> <br>
      <a href="/users">Back to Patients Index</a>
+    </body> 
+    </html>

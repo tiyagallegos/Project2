@@ -28,6 +28,6 @@ router.get('/auth/google', passport.authenticate(
 
   router.get('/users', usersCtrl.index);
 
-  
+  router.get('/navs/gettingstarted', indexCtrl.start)
 
 module.exports = router;

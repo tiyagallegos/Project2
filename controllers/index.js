@@ -3,13 +3,17 @@ const User = require('../models/user');
 
 module.exports = {
     index,
-    create
+    create,
+    start
 };
 
 function index(req, res) {
     res.render('index', {user: req.user});
 }
 
+function start(req, res) {
+    res.render('navs/gettingstarted', {user: req.user});
+}
 
 function create(req, res) {
     User.findById(req.params.id, function(err, user) {

@@ -10,15 +10,22 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
   <title>YuMMY!</title>
 </head>
 <body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center"> 🍭 YuMMY!🥣 </a>
+  </div>
+</nav>
   
-  <a href="/users">Back to Patients Index</a>
+<!---help!  p.name 's as reference in header!-->
 <h3> Feeding Setup</h3>
 <p>Please complete feeding setup per therapist reccommendations</p>
 
- <form id="setupForm" action="/feedings"    method="POST"> 
+
 
   <label>Date:</label>
     <input type="date">
@@ -55,21 +62,12 @@
 <button type="submit"> Setup Completed</button>
 
 
-</form>
 
 
-<table>
-        <thead>
-          <tr>
-            <th>Setup Date</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% user.setup.forEach(function(p) {%>
-            <tr>
-              <td><a href= <%=`users/${p._id}/setups`%>><%= p.date %></a></td>
-              <td><a href="/setups/show<%= p._id %>">View Full Setup</a></td>
-            </tr>
-            <% }); %>
-          </tbody>
-        </table>
+<!--Add link to nav to each setup and option to use setup link to empty set up form, then back to
+normal route filling out feeding session info-->
+
+  <br><br>
+  <a href="/">Homepage!</a>
+</body>
+</html>
