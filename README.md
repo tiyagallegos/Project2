@@ -24,7 +24,8 @@ Access to creator's LI and GH handles provided at bottom of home page.
 ## Images of working app
 
 Landing Page:
-![Landing Page](images/1.png)
+![Landing Page](public/images/1.png)
+
 
 
 
