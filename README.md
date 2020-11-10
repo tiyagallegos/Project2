@@ -1,5 +1,5 @@
 # YuMMY!
-### GA: MongoDB,NodeJs Project
+### MongoDB,NodeJs Project
 
 #### About the App
 This app was designed by a pediatric feeding speech langauge pathogist to provide a user friendly solution for visualtion of feeding data to track progress and interpret data. 
